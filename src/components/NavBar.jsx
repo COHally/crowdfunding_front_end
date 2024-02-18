@@ -10,6 +10,8 @@ function NavBar() {
                     <li><a href="/login">Log In</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="/contact">Contact</a></li>
+                    <li><a href="/create-user">Create Account</a></li>
+                    <li><a href="/create-project">Create Project</a></li>
                 </ul>
             </nav>
         <Outlet />

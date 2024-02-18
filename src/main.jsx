@@ -7,6 +7,8 @@ import NavBar from "./components/NavBar.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
+import CreateUser from "./pages/CreateUser.jsx";
+import CreateProject from "./pages/CreateprojectPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,8 @@ const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
+      { path: "/create-user", element: <CreateUser /> },
+      { path: "/create-project", element: <CreateProject /> },
     ],
   },
 ]);
