@@ -1,7 +1,7 @@
 async function postCreateProject(projectData) {
     const url = `${import.meta.env.VITE_API_URL}/projects/create-project/`;
     const authToken = window.localStorage.getItem("token");
-    // const projectImage = projectData.image ? projectData.image : 
+    const projectImage = projectData.image ? projectData.image : "https://github.com/COHally/crowdfunding_front_end/blob/main/src/images/Ceili.png?raw=true"
 
     const response = await fetch(url, {
     method: "post", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
@@ -13,7 +13,7 @@ async function postCreateProject(projectData) {
         "title": projectData.title,
         "description": projectData.description,
         "goal": projectData.goal,
-        "image": projectData.image,
+        "image": projectImage,
         "is_open": true,
         "date_created": new Date().toISOString(),
         "owner": "",
