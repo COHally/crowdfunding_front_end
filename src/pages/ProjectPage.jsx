@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 
 
@@ -20,8 +20,10 @@ function ProjectPage() {
     return (
         <div>
             <h2>{project.title}</h2>
-            <h3>Created at: {project.date_created}</h3>
-            <h3>{`Status: ${project.is_open}`}</h3>
+            <img src={project.image} />
+            <h3>Desc: {project.description}</h3>
+            <h3>Goal: {project.goal}</h3>
+            {/* <h3>{`Status: ${project.is_open}`}</h3> */}
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => {
