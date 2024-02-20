@@ -11,7 +11,7 @@ function CreateProjectForm() {
         title: "",
         description: "",
         goal: 0,
-        image:"src\images\Ceili.png",
+        image:"",
         is_open: true,
         date_created: new Date().toISOString(),
         owner: "Real Creator",
