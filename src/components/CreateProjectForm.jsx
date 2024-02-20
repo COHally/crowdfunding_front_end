@@ -3,18 +3,20 @@ import { useNavigate } from "react-router-dom";
 import postCreateProject from "../api/post-createproject";
 
 
+
 function CreateProjectForm() {
     const navigate = useNavigate();
 
     const [projectData, setProjectData] = useState({
         title: "",
         description: "",
-        goal: "",
-        image:"",
-        is_open:true,
+        goal: 0,
+        image:"src\images\Ceili.png",
+        is_open: true,
         date_created: new Date().toISOString(),
-        owner: "",
+        owner: "Real Creator",
     });
+console.log(projectData)
 
     const handleChange = (event) => {
         const { id, value } = event.target;
@@ -26,18 +28,15 @@ function CreateProjectForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (projectData.title && projectData.description && projectData.goal && projectData.image) {
+        if (projectData.title && projectData.description && projectData.goal) {
             postCreateProject(
-                projectData.title,
-                projectData.description,
-                projectData.goal,
-                projectData.image
-                ).then((response) => {
+                projectData
+                ).then((newproject) => {
                     // Handle the response if needed
-                    console.log("Project created successfully:", response);
-
+                    console.log("Project created successfully:", newproject); 
+                
                     // Redirect the user to the project detail page or any desired location
-                    navigate(`/projects/${response.projectId}`);
+                    navigate(`/project/${newproject.id}`);
                 })
                 .catch((error) => {
                     // Handle errors, e.g., show an error message to the user
@@ -69,7 +68,7 @@ return (
         <div>
             <label htmlFor="goal">Goal:</label>
             <input
-                type="text"
+                type="number"
                 id="goal"
                 placeholder="Enter project goal"
                 onChange={handleChange}
@@ -90,6 +89,5 @@ return (
     </form>
     );
 }
-
 
 export default CreateProjectForm;

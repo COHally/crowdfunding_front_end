@@ -1,21 +1,22 @@
-async function postCreateProject(title, description, goal, image, is_open, date_created, owner) {
+async function postCreateProject(projectData) {
     const url = `${import.meta.env.VITE_API_URL}/projects/create-project/`;
     const authToken = window.localStorage.getItem("token");
-    console.log(authToken);
+    // const projectImage = projectData.image ? projectData.image : 
+
     const response = await fetch(url, {
-    method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
+    method: "post", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
     headers: {
-        'Authorization': `Bearer ${authToken}`,
+        Authorization: `Token ${authToken}`,
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        "title": title,
-        "description": description,
-        "goal": goal,
-        "image": image,
-        "is_open": is_open,
-        "date_created": date_created,
-        "owner": owner,
+        "title": projectData.title,
+        "description": projectData.description,
+        "goal": projectData.goal,
+        "image": projectData.image,
+        "is_open": true,
+        "date_created": new Date().toISOString(),
+        "owner": "",
         }),
     });
 

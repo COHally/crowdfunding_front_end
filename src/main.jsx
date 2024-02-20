@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import CreateUser from "./pages/CreateUser.jsx";
-import CreateProject from "./pages/CreateprojectPage.jsx";
+import CreateProject from "./pages/CreateProject.jsx";
 
 const router = createBrowserRouter([
   {
