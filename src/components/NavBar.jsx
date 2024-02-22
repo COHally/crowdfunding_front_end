@@ -15,7 +15,7 @@ function NavBar() {
                 </ul>
             </nav>
         <Outlet />
-        <h1>FOOTER</h1>
+        /* <h1>FOOTER</h1> */
         </div>
     );
 }
