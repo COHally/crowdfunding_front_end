@@ -9,6 +9,7 @@ import ContactPage from "./pages/ContactPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import CreateUser from "./pages/CreateUser.jsx";
 import CreateProject from "./pages/CreateProject.jsx";
+import { AuthProvider } from "./components/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* Here we wrap our app in the router provider so they render */}
-    <RouterProvider router={router} />
+    <AuthProvider>
+      {/* Here we wrap our app in the router provider so they render */}
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
