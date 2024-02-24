@@ -3,6 +3,7 @@ import useProject from "../hooks/use-project";
 import CreatePledgeForm from "../components/CreatePledgeForm";
 
 
+
 function ProjectPage() {
 
     // Here we use a hook that comes for free in react router called `useParams`
@@ -21,9 +22,9 @@ function ProjectPage() {
     
 
     return (
-        <div>
+        <div className="projectview">
             <h2>{project.title}</h2>
-            <img src={project.image} />
+            <img className="projectplaceholder" src={project.image} />
             <h3>Desc: {project.description}</h3>
             <h3>Goal: {project.goal}</h3>
             {/* <h3>{`Status: ${project.is_open}`}</h3> */}
