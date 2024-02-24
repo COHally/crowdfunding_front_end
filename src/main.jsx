@@ -3,27 +3,26 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import ProjectPage from "./pages/ProjectPage.jsx";
-import NavBar from "./components/NavBar.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import AboutPage from "./pages/AboutPage.jsx";
 import CreateUser from "./pages/CreateUser.jsx";
 import CreateProject from "./pages/CreateProject.jsx";
 import { AuthProvider } from "./components/AuthProvider.jsx";
+import "./styles/global.css"
+import ProjectsPage from "./pages/ProjectsPage.jsx";
+import App from "./app";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NavBar />,
+    element: <App />,
     
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/login", element: <LoginPage /> },
-      { path: "/about", element: <AboutPage /> },
-      { path: "/contact", element: <ContactPage /> },
       { path: "/project/:id", element: <ProjectPage /> },
       { path: "/create-user", element: <CreateUser /> },
       { path: "/create-project", element: <CreateProject /> },
+      { path: "/projects", element: <ProjectsPage /> },
     ],
   },
 ]);
