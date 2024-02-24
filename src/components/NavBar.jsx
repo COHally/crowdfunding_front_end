@@ -18,16 +18,20 @@ function NavBar() {
                 <p>Connecting hearts across borders. </p>
             </div>
             <nav>
-                <ul>
+                <ul style={{ listStyle: 'none', display: 'flex', alignItems: 'center' }}>
                     <li><a href="/">Home</a></li>
-                    {auth.token ? (
-                        <li><a href="/" onClick={handleLogout}>Log Out</a></li>
-                    ) : (
-                        <li><a href="/login">Login</a></li>
-                    )}
                     <li><a href="/Projects">Projects</a></li>
-                    <li><a href="/create-user">Create Account</a></li>
-                    <li><a href="/create-project">Create Project</a></li>
+                    {auth.token ? (
+                        <ul>
+                        <li><a href="/create-project">Create Project</a></li>
+                        <li><a href="/" onClick={handleLogout}>Log Out</a></li>
+                        </ul>
+                    ) : (
+                        <ul>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/create-user">Create Account</a></li>
+                        </ul>
+                    )}
                 </ul>
             </nav>
         </div>

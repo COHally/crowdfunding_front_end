@@ -17,7 +17,7 @@ function HomePage() {
                 <p>Ceili is not just a crowdfunding platform; it's a community of compassionate 
                 individuals who understand the importance of family. 
                 Join us in making dreams come true, one heartfelt campaign at a time.
-                </p>;
+                </p>
             </div>
 }
 

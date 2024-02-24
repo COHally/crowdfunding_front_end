@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import CreatePledgeForm from "../components/CreatePledgeForm";
 
@@ -18,8 +18,8 @@ function ProjectPage() {
 
     if (error) {
         return (<p>{error.message}</p>)
+        
     }
-    
 
     return (
         <div className="projectview">
@@ -27,7 +27,7 @@ function ProjectPage() {
             <img className="projectplaceholder" src={project.image} />
             <h3>Desc: {project.description}</h3>
             <h3>Goal: {project.goal}</h3>
-            {/* <h3>{`Status: ${project.is_open}`}</h3> */}
+            <h3>{`Status: ${project.is_open}`}</h3>
             <h3>Pledges:</h3>
             <ul>
                 {project.pledges.map((pledgeData, key) => {
