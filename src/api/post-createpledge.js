@@ -1,16 +1,18 @@
-async function postCreateuser(userData) {
-    const url = `${import.meta.env.VITE_API_URL}/users/create-user/`;
+async function postCreatePledge(pledgeData) {
+    const url = `${import.meta.env.VITE_API_URL}/pledges/`;
+    const authToken = window.localStorage.getItem("token");
     const response = await fetch(url, {
-    method: "POST", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
+    method: "post", // We need to tell the server that we are sending JSON data so we set the Content-Type header to application/json
     headers: {
+        Authorization: `Token ${authToken}`,
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
-        "username": userData.username,
-        "password": userData.password,
-        "email": userData.email,
+        ...pledgeData
         }),
     });
+
+    
 
     if (!response.ok) {
         const fallbackError = `Please try again.`;
@@ -25,4 +27,4 @@ async function postCreateuser(userData) {
     return await response.json();
 }
 
-export default postCreateuser;
+export default postCreatePledge;

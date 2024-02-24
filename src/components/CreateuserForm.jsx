@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import postCreateuser from "../api/post-createuser/";
+import postCreateuser from "../api/post-createuser";
 import "./CreateuserForm.css"
 
 
@@ -12,6 +12,7 @@ function CreateuserForm() {
         password: "",
         email: "",
     });
+console.log(userData)
 
     const handleChange = (event) => {
         const { id, value } = event.target;
@@ -25,9 +26,7 @@ function CreateuserForm() {
         event.preventDefault();
         if (userData.username && userData.password && userData.email) {
             postCreateuser(
-                userData.username,
-                userData.password,
-                userData.email
+                userData
             ).then((response) => {
                 // Handle the response if needed
                 // For example, you might want to show a success message
@@ -38,6 +37,10 @@ function CreateuserForm() {
 
                 // Redirect the user to the home page or any desired location
                 navigate("/");
+            })
+            .catch((error) => {
+                // Handle errors, e.g., show an error message to the user
+                console.error("Error creating user:", error);
             });
         }
     };
@@ -50,7 +53,7 @@ function CreateuserForm() {
                     type="text"
                     id="username"
                     placeholder="Enter username"
-                    onSubmit={handleSubmit}
+                    onChange={handleChange}
                 />
             </div>
             <div>
@@ -59,7 +62,7 @@ function CreateuserForm() {
                     type="password"
                     id="password"
                     placeholder="Password"
-                    onSubmit={handleSubmit}
+                    onChange={handleChange}
                 />
             </div>
             <div>
@@ -68,7 +71,7 @@ function CreateuserForm() {
                     type="email"
                     id="email"
                     placeholder="Enter email"
-                    onSubmit={handleSubmit}
+                    onChange={handleChange}
                 />
             </div>
             <button type="submit" onClick={handleSubmit}>
