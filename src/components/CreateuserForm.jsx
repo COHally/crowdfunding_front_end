@@ -7,6 +7,8 @@ function CreateuserForm() {
     const navigate = useNavigate();
 
     const [userData, setUserData] = useState({
+        first_name:"",
+        last_name:"",
         username: "",
         password: "",
         email: "",
@@ -23,7 +25,7 @@ console.log(userData)
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (userData.username && userData.password && userData.email) {
+        if (userData.first_name && userData.last_name && userData.username && userData.password && userData.email) {
             postCreateuser(
                 userData
             ).then((response) => {
@@ -46,6 +48,24 @@ console.log(userData)
         
     return (
         <form>
+            <div>
+                <label htmlFor="firstname">First name:</label>
+                <input
+                    type="text"
+                    id="first_name"
+                    placeholder="Enter first name."
+                    onChange={handleChange}
+                />
+            </div>
+            <div>
+                <label htmlFor="lastname">Last name:</label>
+                <input
+                    type="text"
+                    id="last_name"
+                    placeholder="Enter last name."
+                    onChange={handleChange}
+                />
+            </div>
             <div>
                 <label htmlFor="username">Username:</label>
                 <input
