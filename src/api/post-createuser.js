@@ -6,6 +6,8 @@ async function postCreateuser(userData) {
         "Content-Type": "application/json",
     },
     body: JSON.stringify({
+        "first_name": userData.first_name,
+        "last_name": userData.last_name,
         "username": userData.username,
         "password": userData.password,
         "email": userData.email,

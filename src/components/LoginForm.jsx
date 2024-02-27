@@ -14,6 +14,7 @@ function LoginForm() {
         username: "",
         password: "",
     });
+
     const handleChange = (event) => {
         const { id, value } = event.target;
         setCredentials((prevCredentials) => ({
@@ -29,15 +30,17 @@ function LoginForm() {
                 credentials.username,
                 credentials.password
             ).then((response) => {
-                window.localStorage.setItem("token", response.token);
+                window.localStorage.setItem("token", response.token); 
                 setAuth({
-                    token: response.token,
-                });
-                navigate("/");
+                     token: response.token,
+                     username: response.username, 
+                     userId: response.user_id,   
+                })
+                navigate("/profile");
             });
         }
     };
-        
+
     return (
         <form>
             <div>
@@ -63,7 +66,7 @@ function LoginForm() {
                 Login
             </button>
         </form>
-    );
-}
+    )};
+
 
 export default LoginForm;
