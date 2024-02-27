@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react";
-import getUser from "../api/get-user";
+import getUserData from "../api/get-user-data.js";
 
-function useUser(userId) {
-    
-    const [user, setUser] = useState();
+function useUser() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
+    const [userId, setUserId] = useState();
+    //const { user } = useAuth();
 
-    
+
     useEffect(() => {
-        getUser(userId).then((user) => {
-            setUser(user);
-            setIsLoading(false);
-        }).catch((error) => {
-            setError(error);
-            setIsLoading(false);
-        });
-    }, [userId])
+        getUserData()
+            .then((users) => { console.log("useUserData:", users);
+                setUserId(users);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                setError(error);
+                setIsLoading(false);
+            });
+            
+        },[]);
 
-    return { user, isLoading, error };
+        
+        return {userId, isLoading, error};
+   
 }
-
 export default useUser;

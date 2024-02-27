@@ -1,26 +1,24 @@
-import { useParams } from "react-router-dom";
-import useUser from "../hooks/use-user";
+import React, {useContext} from 'react';
+import { AuthContext } from '../components/AuthProvider';
 
-function ProfilePage() {
+function userProfile(){
 
-    const { userId } = useParams();
-    const { user, isLoading, error } = useUser(userId);
 
-    if (isLoading) {
-        return (<p>loading...</p>)
-    }
 
-    if (error) {
-        return (<p>{error.message}</p>)
-    }
+    const { auth } = useContext(AuthContext);
+    const { username, email, userId} =auth;
+console.log('auth:', username);
+    
 
-    return (
-        <div className="profileview">
-            <h2>{user.username}</h2>
-            <h3>Email: {user.email}</h3>
+    
+
+    return(
+        <div>
+            <h2>User Profile</h2>
+        <p>Username: {username}</p>
+        <p>User Id: {userId}</p>
         </div>
     );
+
 }
-    
-export default ProfilePage
-    
+export default userProfile;
