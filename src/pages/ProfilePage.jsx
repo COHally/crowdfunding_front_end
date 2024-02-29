@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import { AuthContext } from '../components/AuthProvider';
+import ProjectDeleteButton from '../components/ProjectDelete';
+
 
 function userProfile(){
 
@@ -7,17 +9,15 @@ function userProfile(){
 
     const { auth } = useContext(AuthContext);
     const { username, email, userId} =auth;
-console.log('auth:', username);
-    
+    console.log(`'auth:', {username}`);
 
-    
 
     return(
-        <div>
-            <h2>User Profile</h2>
-        <p>Username: {username}</p>
-        <p>User Id: {userId}</p>
-        </div>
+            <div>
+                <h2>User Profile</h2>
+                <p>Username: {username}</p>
+                <p>User Id: {userId}</p>
+            </div>
     );
 
 }

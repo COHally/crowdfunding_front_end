@@ -27,12 +27,8 @@ async function getUserData() {
   
     //extracting usernames from the array of user objects
     const userUsername = usersData.map(user => user.username);
-   
-
-    //tryng to assign isOWner
-   
-
-    
+    const userEmail = usersData.map(user => user.email);
+ 
     return usersData;  
    
 }

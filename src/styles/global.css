@@ -49,6 +49,8 @@ h1 {
     border: 1px solid black;
     box-shadow: 0px 0px 5px gray;
     border-radius: 25px;
+    justify-content: center;
+    text-align: center;
     }
 
 .project-card img {

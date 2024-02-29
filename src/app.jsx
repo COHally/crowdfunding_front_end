@@ -6,7 +6,6 @@ const App = () => {
     <div>
       <NavBar />
       <Outlet />
-      <div>Cathy O Halloran</div>
     </div>
   );
 };
