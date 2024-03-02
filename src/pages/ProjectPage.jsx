@@ -22,8 +22,6 @@ function ProjectPage() {
         
     }
 
-    const isOwner = authContext.user && authContext.user.id === project.owner_id;
-
     return (
         <div className="projectview">
             <h2>{project.title}</h2>
@@ -42,14 +40,11 @@ function ProjectPage() {
                 })}
             </ul>
        
-            {isOwner && (
-                <div>
-                <ProjectDeleteButton projectId={project.id} />
-                {/* <ProjectUpdateButton projectId={project.id}/> */}
-                </div>
-      )}
-            
-            
+        <div>
+            <ProjectDeleteButton projectId={project.id} />
+            {/* <ProjectUpdateButton projectId={project.id}/> */}
+        </div>
+                  
         <div className="card">
           <CreatePledgeForm projectId={project.id} />
         </div>

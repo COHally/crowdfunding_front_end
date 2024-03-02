@@ -11,6 +11,8 @@ function CreatePledgeForm({ projectId }) {
     comment: "",
     anonymous: false,
     project: projectId,
+    first_name: "",
+    last_name:"",
   });
 
   console.log(pledgeData);
