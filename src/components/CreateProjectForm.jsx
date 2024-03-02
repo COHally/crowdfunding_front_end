@@ -40,6 +40,7 @@ console.log(projectData)
                 .catch((error) => {
                     // Handle errors, e.g., show an error message to the user
                     console.error("Error creating project:", error);
+                    navigate(`/ErrorPage`)
                 });
         }
     };

@@ -20,6 +20,7 @@ function ProjectDeleteButton({ projectId, currentUserId, projectOwner }) {
     } catch (error) {
       console.error('Error deleting project:', error.message);
       // Handle errors, e.g., display an error message to the user
+      navigate(`/ErrorPage`)
     }
   };
 

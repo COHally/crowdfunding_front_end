@@ -23,7 +23,7 @@ function NavBar() {
                         <ul>
                         <li><a href="/create-project">Create Project</a></li>
                         <li><a href="/" onClick={handleLogout}>Log Out</a></li>
-                        <li><a href="/Profile">Profile</a></li>
+                        <li><a href="/profile">Profile</a></li>
                         </ul>
                     ) : (
                         <ul>

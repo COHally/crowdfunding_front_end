@@ -37,6 +37,7 @@ const handleSubmit = (event) => {
         .catch((error) => {
           // Handle errors, e.g., show an error message to the user
           console.error('Error creating pledge:', error);
+          navigate(`/ErrorPage`)
         });
     }
 }
