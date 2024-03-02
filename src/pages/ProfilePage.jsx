@@ -12,7 +12,7 @@ function userProfile(){
 
 
     return(
-            <div>
+            <div className='container'>
                 <h2>User Profile</h2>
                 <p>Username: {username}</p>
                 <p>User Id: {userId}</p>

@@ -17,8 +17,8 @@ function NavBar() {
             </div>
             <nav>
                 <ul style={{ listStyle: 'none', display: 'flex', alignItems: 'center' }}>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Projects">Projects</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/Projects">Projects</a></li>
                     {auth.token ? (
                         <ul>
                         <li><a href="/create-project">Create Project</a></li>
