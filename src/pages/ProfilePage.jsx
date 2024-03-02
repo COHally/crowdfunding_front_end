@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import { AuthContext } from '../components/AuthProvider';
-import ProjectDeleteButton from '../components/ProjectDelete';
 
 
 function userProfile(){

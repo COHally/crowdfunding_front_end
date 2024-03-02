@@ -3,10 +3,14 @@ import { useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import CreatePledgeForm from "../components/CreatePledgeForm";
 import ProjectDeleteButton from "../components/ProjectDelete";
+// import ProjectUpdateButton from "../components/ProjectUpdate";
+import { AuthContext } from "../components/AuthProvider";
 
 function ProjectPage() {
     const { id } = useParams();
     const { project, isLoading, error } = useProject(id);
+    const authContext = useContext(AuthContext);
+    
     
 
     if (isLoading) {
@@ -17,6 +21,8 @@ function ProjectPage() {
         return (<p>{error.message}</p>)
         
     }
+
+    const isOwner = authContext.user && authContext.user.id === project.owner_id;
 
     return (
         <div className="projectview">
@@ -35,10 +41,13 @@ function ProjectPage() {
                     );
                 })}
             </ul>
-
-            <div>
-            <ProjectDeleteButton projectId={project.id} />
-            </div>
+       
+            {isOwner && (
+                <div>
+                <ProjectDeleteButton projectId={project.id} />
+                {/* <ProjectUpdateButton projectId={project.id}/> */}
+                </div>
+      )}
             
             
         <div className="card">

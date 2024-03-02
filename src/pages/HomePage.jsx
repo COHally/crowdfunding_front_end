@@ -1,6 +1,6 @@
 function HomePage() {
     return  <div className="about">
-                <h1>🌍 Welcome to Ceili - Connecting Hearts Across Borders 🌍</h1>
+                <h1>Welcome to <span class="highlight">CEILI</span> - Connecting Hearts Across Borders</h1>
 
                 <p>Missing your loved ones? Ceili is here to help you bridge the distance and reunite with family.
                     Our crowdfunding platform is tailored for immigrants like you, 

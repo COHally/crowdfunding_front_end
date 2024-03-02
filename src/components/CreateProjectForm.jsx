@@ -30,12 +30,12 @@ console.log(projectData)
         if (projectData.title && projectData.description && projectData.goal) {
             postCreateProject(
                 projectData
-                ).then((newproject) => {
+                ).then((response) => {
                     // Handle the response if needed
-                    console.log("Project created successfully:", newproject); 
+                    console.log("Project created successfully:", response); 
                 
                     // Redirect the user to the project detail page or any desired location
-                    navigate(`/project/${newproject.id}`);
+                    navigate(`/projects`);
                 })
                 .catch((error) => {
                     // Handle errors, e.g., show an error message to the user

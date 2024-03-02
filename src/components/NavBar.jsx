@@ -1,4 +1,3 @@
-import { Link, Outlet } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth";
 
 
@@ -13,9 +12,8 @@ function NavBar() {
     return (
         <div>
             <div className="overlay">
-                <h1>Ceili</h1>
+                <h1 id="hero">CEILI</h1>
                 <h3>Crowdfunding for connection.</h3>
-                <p>Connecting hearts across borders. </p>
             </div>
             <nav>
                 <ul style={{ listStyle: 'none', display: 'flex', alignItems: 'center' }}>
