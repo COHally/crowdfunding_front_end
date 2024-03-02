@@ -12,7 +12,7 @@ function NavBar() {
     return (
         <div>
             <div className="overlay">
-                <img src="src\images\Header image 3.png" id="headerimage" />
+                <img src="https://github.com/COHally/crowdfunding_front_end/blob/main/src/images/Header%20image%203.png?raw=true" id="headerimage" />
                 <h3>Crowdfunding for connection.</h3>
             </div>
             <nav>
