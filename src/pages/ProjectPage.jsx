@@ -1,16 +1,17 @@
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import CreatePledgeForm from "../components/CreatePledgeForm";
-
-
+import ProjectDeleteButton from "../components/ProjectDelete";
+// import ProjectUpdateButton from "../components/ProjectUpdate";
+import { AuthContext } from "../components/AuthProvider";
 
 function ProjectPage() {
-
-    // Here we use a hook that comes for free in react router called `useParams`
-    // to get the id from the URL so that we can pass it to our useProject hook.
     const { id } = useParams();
-    // useProject returns three pieces of info, so we need to grab them all here
     const { project, isLoading, error } = useProject(id);
+    const authContext = useContext(AuthContext);
+    
+    
 
     if (isLoading) {
         return (<p>loading...</p>)
@@ -20,6 +21,8 @@ function ProjectPage() {
         return (<p>{error.message}</p>)
         
     }
+
+    const isOwner = authContext.user && authContext.user.id === project.owner_id;
 
     return (
         <div className="projectview">
@@ -38,11 +41,19 @@ function ProjectPage() {
                     );
                 })}
             </ul>
+       
+            {isOwner && (
+                <div>
+                <ProjectDeleteButton projectId={project.id} />
+                {/* <ProjectUpdateButton projectId={project.id}/> */}
+                </div>
+      )}
             
             
-            <div className="card">
-                <CreatePledgeForm projectId={project.id}/>
-            </div>
+        <div className="card">
+          <CreatePledgeForm projectId={project.id} />
+        </div>
+    
         </div>
     );
 }

@@ -42,6 +42,7 @@ console.log(userData)
             .catch((error) => {
                 // Handle errors, e.g., show an error message to the user
                 console.error("Error creating user:", error);
+                navigate(`/ErrorPage`)
             });
         }
     };

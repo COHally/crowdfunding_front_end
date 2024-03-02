@@ -3,56 +3,47 @@ import postCreatePledge from '../api/post-createpledge';
 import { useNavigate } from "react-router-dom";
 
 
-function CreatePledgeForm({projectId}) {
-    const navigate = useNavigate();
-    const [isSupporterAnonymous, setIsSupporterAnonymous] = useState(false);
-  
-    const [pledgeData, setPledgeData] = useState({
-      amount: 0,
-      comment: "",
-      anonymous: false,
-      project: projectId,
-    });
+function CreatePledgeForm({ projectId }) {
+  const navigate = useNavigate();
 
-    console.log(pledgeData)
-  
-    const handleChange = (event) => {
-      const { id, value, type, checked } = event.target;
-  
-      // Use the correct value based on the input type
-      const inputValue = type === 'checkbox' ? checked : value;
-  
-      setPledgeData((prevPledgeData) => ({
+  const [pledgeData, setPledgeData] = useState({
+    amount: 0,
+    comment: "",
+    anonymous: false,
+    project: projectId,
+  });
+
+  console.log(pledgeData);
+
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setPledgeData((prevPledgeData) => ({
         ...prevPledgeData,
-        [id]: inputValue,
-      }));
-    };
+        [id]: value,
+    }));
+};
 
-    console.log(pledgeData)
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      // Basic validation
-      if (pledgeData.amount > 0 && pledgeData.comment) {
-        postCreatePledge(pledgeData)
-          .then((response) => {
-            // Handle the response if needed
-            console.log(pledgeData)
-            console.log('Pledge created successfully:', response);
-  
-            // Redirect the user to the project detail page or any desired location
-            navigate(`/project/${response}`);
-          })
-          .catch((error) => {
-            // Handle errors, e.g., show an error message to the user
-            console.error('Error creating pledge:', error);
-          });
-      } 
-    };
+const handleSubmit = (event) => {
+  event.preventDefault();
+    if (pledgeData.amount > 0 && pledgeData.comment) {
+      postCreatePledge(pledgeData)
+        .then((response) => {
+          // Handle the response if needed
+          console.log('Pledge created successfully:', response);
+
+          // Redirect the user to the project detail page or any desired location
+          navigate(`/project/${projectId}`);
+        })
+        .catch((error) => {
+          // Handle errors, e.g., show an error message to the user
+          console.error('Error creating pledge:', error);
+          navigate(`/ErrorPage`)
+        });
+    }
+}
   
     return (
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="amount">Amount:</label>
           <input
@@ -72,15 +63,15 @@ function CreatePledgeForm({projectId}) {
         </div>
         <div>
           <label>
-            <input
-              type="checkbox"
-              checked={isSupporterAnonymous}
-              onChange={() => setIsSupporterAnonymous(!isSupporterAnonymous)}
-            />
+          <input
+            type="checkbox"
+            checked={pledgeData.anonymous}
+            onChange={() => setPledgeData({ ...pledgeData, anonymous: !pledgeData.anonymous })}
+          />
             Keep my identity anonymous
           </label>
         </div>
-        <button type="submit" onSubmit={handleSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     );
   }
