@@ -16,11 +16,12 @@ function ProjectDeleteButton({ projectId, currentUserId, projectOwner }) {
       } else {
         console.error('Unauthorized: You are not the owner of this project.');
         // Handle unauthorized deletion, e.g., display a message to the user
+        navigate(`/AuthPage`)
       }
     } catch (error) {
       console.error('Error deleting project:', error.message);
       // Handle errors, e.g., display an error message to the user
-      navigate(`/ErrorPage`)
+      navigate(`/AuthPage`)
     }
   };
 
