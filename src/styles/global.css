@@ -135,21 +135,17 @@ nav {
     opacity: 1;
   }
 
-  .overlay h1 {
-    top: 50%;
-    left: 50%;
-    text-align: center;
-    color: #fff;
-    font-size: 3em;
-    font-style: italic;
-  }
-  
+ .overlay img{
+  width:70%;
+  height: auto;
+ }  
   .overlay h3 {
     top: 50%;
     left: 50%;
     text-align: center;
-    color: #fff;
+    color: #333;
     font-size: 1.5em;
+    font-style: italic;
   }
 
 /* Form Styling */
@@ -309,6 +305,11 @@ h1, a{
       row-gap: 10px;
       justify-content: center;
   }
+
+  .about {
+    height: auto; /* Adjust height as needed */
+    font-size: medium; /* Adjust font size as needed */
+}
   
 }
 

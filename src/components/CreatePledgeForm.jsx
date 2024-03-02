@@ -3,9 +3,9 @@ import postCreatePledge from '../api/post-createpledge';
 import { useNavigate } from "react-router-dom";
 
 
-function CreatePledgeForm({ projectId }) {
+function CreatePledgeForm({projectId}) {
   const navigate = useNavigate();
-
+  
   const [pledgeData, setPledgeData] = useState({
     amount: 0,
     comment: "",
@@ -32,9 +32,8 @@ const handleSubmit = (event) => {
         .then((response) => {
           // Handle the response if needed
           console.log('Pledge created successfully:', response);
-
           // Redirect the user to the project detail page or any desired location
-          navigate(`/project/${projectId}`);
+          navigate(`/projects`);
         })
         .catch((error) => {
           // Handle errors, e.g., show an error message to the user

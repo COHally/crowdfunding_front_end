@@ -12,7 +12,7 @@ function NavBar() {
     return (
         <div>
             <div className="overlay">
-                <h1 id="hero">CEILI</h1>
+                <img src="src\images\Header image 3.png" id="headerimage" />
                 <h3>Crowdfunding for connection.</h3>
             </div>
             <nav>
